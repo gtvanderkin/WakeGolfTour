@@ -1,0 +1,33 @@
+{% extends parent_template|default:"tournament/base_tournament.html" %}
+{% block title %}
+{{ block.super }} - {{ tournament.tourn_name }}
+{% endblock %}
+{% block content %}
+  <h2>{{ tournament.tourn_name }} Tournament ( {{ tournament.tourn_start_date }} )</h2>
+  <dl><h2>{{ tournament.tourn_course }}</h2></dl>
+  <dl><table class="Leader Board" border="2" cellpadding="8">
+    <caption><h3>Leader Board</h3></caption>
+    <tr>
+      <td><h4>Player Name</h4></td>
+      <td><h4>Total Score</h4></td>
+      <td>R1 Score</td>
+      <td>R2 Score</td>
+      <td>R3 Score</td>
+      <td>R4 Score</td>
+    </tr>
+    {% for score in scores %}
+      <tr>
+        <td>{{ score.golfer_name }}</td>
+        <td>
+            <a href="/golfer/{{ score.tourn_golfer_id }}/round_scores">
+               {{ score.total_score }} </a>
+        </td>
+        <td>{{ score.round1_score }}</td>
+        <td>{{ score.round2_score }}</td>
+        <td>{{ score.round3_score }}</td>
+        <td>{{ score.round4_score }}</td>
+      </tr>
+    {% endfor %}
+  </table></dl>
+{% endblock %}
+

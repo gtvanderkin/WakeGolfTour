@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% block title %}
+        Wake Golf Tour
+      {% endblock %}
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block css %}
+    {% endblock %}
+  </head>
+  <body>
+    <div>
+      <header>
+          <h1>Wake Golf Tour</h1>
+          <p>{% block img %}
+             {% endblock %}
+          </p>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="{% url 'golf_course_list' %}">
+               Golf Courses</a></li>
+          <li><a href="{% url 'golfer_list' %}">
+               Golfers</a></li>
+          <li><a href="{% url 'tournament_list' %}">
+               Tournaments</a></li>
+          <li><a href="{% url 'golfer_polls:index' %}">Golfer Polls</a></li>
+        </ul>
+      </nav>
+      <main>
+        {% block content %}
+          This is where the above hyperlink lists are displayed
+        {% endblock %}
+      </main>
+    </div>
+    <footer>
+      <p>
+        For professional golf information: 
+        <a href="http://www.pgatour.com/">PGA Tour</a>
+      </p>
+    </footer>
+  </body>
+</html>

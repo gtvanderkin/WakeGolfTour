@@ -1,0 +1,19 @@
+{% extends parent_template|default:"golf_course/base_golf_course.html" %}
+
+{% block title %}
+{{ block.super }} - Golf Courses
+{% endblock %}
+
+{% block content %}
+  <h2>Golf Course List</h2>
+    {% if golf_courses %}
+      <ul>
+          {% for course in golf_courses %}
+            <li><a href="/golf_course/{{ course.course_id }}/">
+                   {{ course.course_name }}</a></li>
+          {% endfor %}
+      </ul>
+    {% else %}
+      <p>No Golf Courses are available.</p>
+    {% endif %}
+{% endblock %}

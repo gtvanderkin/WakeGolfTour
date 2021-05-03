@@ -1,0 +1,23 @@
+body {
+    background-color: lightyellow;
+    font-family: Verdana, Geneva, sans-serif
+}
+h1 {
+    color: saddlebrown;
+    font-family: Verdana, Geneva, sans-serif
+    margin-left: 20px;
+}
+h2 {
+    color: orange;
+    font-family:  "Comic Sans MS", cursive, sans-serif
+    margin-left: 20px;
+}
+h3 {
+    color: darkgoldenrod;
+    font-family:  "Arial Black", Gadget, sans-serif
+}
+li a {
+    color: sienna;
+    font-family:  Arial, Helvetica, sans-serif
+}
+

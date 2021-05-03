@@ -1,0 +1,10 @@
+{% extends parent_template|default:"base.html" %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" type="text/css"
+        href="{% static 'golfer_polls/styles.css' %}" />
+{% endblock %}
+
+{% block img %}
+   <img src="{% static 'golfer_polls/golfer.jpg' %}" alt="Golfer" style="width:300px;height:300px"; />
+{% endblock %}

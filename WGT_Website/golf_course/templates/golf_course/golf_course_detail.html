@@ -1,0 +1,43 @@
+{% extends parent_template|default:"golf_course/base_golf_course.html" %}
+
+{% block title %}
+{{ block.super }} - {{ golf_course.course_name }}
+{% endblock %}
+
+{% block content %}
+  <h2>{{ golf_course.course_name }}</h2>
+    <table class = "Par Configuration" border="2" cellpadding="8">
+       <caption><h3> Par Configuration </h3></caption>
+       <tr>
+          <th> Hole </th> 
+          {% for hole in holes %}
+          <td>
+            {{ hole.hole_number }}
+          </td>
+          {% endfor %} 
+          <td> Total </td>  
+       </tr>
+       <tr>
+         <th> Par </th>  
+          {% for hole in holes %}
+          <td>
+            {{ hole.hole_par }}
+          </td>
+          {% endfor %}
+          <td>
+            {{ golf_course.course_total_par}}
+          </td>
+       </tr>  
+    </table> 
+  <dl>
+    <dt><h3> Tournaments </h3></dt>
+      <dd>
+        {% for tourn in tournaments %}
+          <li><a href="/tournament/{{ tourn.tourn_id }}/">
+                 "{{ tourn.tourn_name }} Tournament" on 
+                  {{ tourn.tourn_start_date }} 
+          </a></li>
+        {% endfor %}
+      </dd>
+   </dl>           
+{% endblock %}

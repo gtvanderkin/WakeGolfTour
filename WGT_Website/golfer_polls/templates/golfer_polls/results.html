@@ -1,0 +1,20 @@
+{% extends parent_template|default:"golfer_polls/base_golfer_polls.html" %}
+
+{% block title %}
+{{ block.super }} - {{question.question_text}}
+{% endblock %}
+
+{% block content %}
+
+    <h2><a>Poll Results</a></h2>
+    <ul>
+    {% for choice in question.choice_set.all|dictsortreversed:"votes" %}
+        {% if choice.votes > 0 %}
+            <li>{{choice.choice_text}} -- {{choice.votes}}
+                       vote{{choice.votes|pluralize}}</li>
+        {% endif %}
+    {%endfor%}
+    </ul>
+    <a href="{% url 'golfer_polls:detail' question.id %}">Vote again?</a> 
+    
+{% endblock %}

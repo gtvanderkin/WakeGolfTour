@@ -1,0 +1,52 @@
+{% extends parent_template|default:"golfer/base_golfer.html" %}
+
+{% block title %}
+{{ block.super }} - {{ golfer.golfer_name }}
+{% endblock %}
+
+{% block content %}
+  <h2>{{ golfer.golfer_name }}</h2>
+  <h3> BirthDate: {{ golfer.golfer_birthdate }}</h3>
+  <h3> City: {{ golfer.golfer_city }}</h3>
+  <dl>
+    <table class="Recent Tournaments" border="2" cellpadding="8">
+      <caption><h3>Recent Tournaments</h3></caption>
+      <tr>
+        <td><h4>Tournament</h4></td>
+        <td><h4>Total Score</h4></td>  
+      </tr>
+      {% for score in scores %}
+        <tr>
+          <td>{{ score.tournament_name }}</td>
+          <td>
+            <a href="/golfer/{{ score.tourn_golfer_id }}/round_scores">
+               {{ score.total_score }} </a>
+          </td>
+        </tr>  
+      {% endfor %}
+    </table> 
+  </dl>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

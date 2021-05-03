@@ -1,0 +1,21 @@
+{% extends parent_template|default:"golfer/base_golfer.html" %}
+
+{% block title %}
+{{ block.super }} - Golfers
+{% endblock %}
+
+{% block content %}
+  <h2>Golfer List</h2>
+    {% if golfers %}
+      <ul>
+        {% for golfer in golfers %}
+          <li><a href="/golfer/{{ golfer.golfer_id }}/">
+                {{ golfer.golfer_name }}
+          </a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No Golfers are available.</p>
+    {% endif %}
+{% endblock %}
+

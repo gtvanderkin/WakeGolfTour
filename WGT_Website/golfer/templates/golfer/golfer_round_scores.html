@@ -1,0 +1,53 @@
+{% extends parent_template|default:"golfer/base_golfer.html" %}
+
+{% block title %}
+{{ block.super }} - {{ tourn_golfer.getTournName  }}
+{% endblock %}
+
+{% block content %}
+
+  <h2>{{ tourn_golfer.getGolferName }}</h2>
+  <h2>{{ tourn_golfer.getTournName }} Tournament</h2>
+  <dl>
+    <table class="Score Card" border="2" cellpadding="8">
+      <caption>
+        <h3>{{ golf_course.course_name }} - Par: 
+            {{ golf_course.course_total_par }} </h3>
+      </caption>
+        <tr>
+          <th>Hole</th> 
+          {% for hole in holes %}
+          <td>
+            {{ hole.hole_number }}
+          </td>
+          {% endfor %} 
+          <td>Total</td>  
+        </tr>
+        <tr>
+          <th>Par</th>  
+          {% for hole in holes %}
+          <td>
+            {{ hole.hole_par }}
+          </td>
+          {% endfor %}
+          <td>{{ golf_course.course_total_par}}</td>
+        </tr>
+        {% for score in scores %}
+          <tr>
+            <td>{{ score.grs_round }}</td>
+            {% for score, diff in score.getParDiffs %}
+              {% if diff < 0 %}
+                <td style=" background-color: lightblue">{{ score }}</td>
+              {% elif diff > 0 %}
+                <td style=" background-color: orange">{{ score }}</td>
+              {% else %}
+                <td style=" background-color: lightgray">{{ score }}</td>
+              {% endif %}
+            {% endfor %}
+            <td>{{ score.grs_total_score }}</td>                
+          </tr>  
+        {% endfor %}
+    </table> 
+  </dl> 
+{% endblock %}
+

@@ -1,0 +1,23 @@
+body {
+    background-color: wheat;
+    font-family: Verdana, Geneva, sans-serif
+}
+h1 {
+    color: blue;
+    font-family: Tahoma, Geneva, sans-serif
+    margin-left: 20px;
+}
+h2 {
+    color: green;
+    font-family:  Arial, Helvetica, sans-serif
+    margin-left: 20px;
+}
+h3 {
+    color: brown;
+    font-family:  "Comic Sans MS", cursive, sans-serif
+}
+li a {
+    color: darkslateblue;
+    font-family:  Arial, Helvetica, sans-serif
+}
+

@@ -1,0 +1,27 @@
+{% extends parent_template|default:"golfer_polls/base_golfer_polls.html" %} 
+{% block title %}
+{{ block.super }} - {{question.question_text}}
+{% endblock %}
+{% block content %}
+  <h1>{{ question.question_text }}</h1>
+  {% if error_message %}
+    <p>
+      <strong>{{ error_message }} </strong>
+    </p>
+  {% endif %}
+  <form action="{% url 'golfer_polls:vote' question.id %}" 
+        method="post">
+    {% csrf_token %}
+    <select name= "choice">
+        <option selected="selected" 
+                     disabled>Golfers
+        </option>
+        {% for choice in question.choice_set.all %}
+           <option value= "{{choice.id}}">
+                   {{choice.choice_text}}
+           </option>
+        {% endfor %}                
+    </select>
+  <input type="submit" value="Vote" />
+  </form>
+{% endblock %}
